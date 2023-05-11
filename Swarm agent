@@ -1,0 +1,8 @@
+#This will run a Swarm container configured to manage.
+docker run \
+    -ti \
+    -d \
+    --restart=always \
+    --name shipyard-swarm-manager \
+    swarm:latest \
+    manage --host tcp://0.0.0.0:3375 etcd://<IP-OF-HOST>:4001
