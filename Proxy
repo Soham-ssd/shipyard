@@ -1,0 +1,13 @@
+#By default, the Docker Engine only listens on a socket. We could re-configure the Engine to use TLS or you can use a proxy container. 
+#This is a very lightweight container that simply forwards requests from TCP to the Unix socket that Docker listens on.
+
+docker run \
+    -ti \
+    -d \
+    -p 2375:2375 \
+    --hostname=$HOSTNAME \
+    --restart=always \
+    --name shipyard-proxy \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -e PORT=2375 \
+    shipyard/docker-proxy:latest
