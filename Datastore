@@ -1,0 +1,6 @@
+docker run \
+    -ti \
+    -d \
+    --restart=always \
+    --name shipyard-rethinkdb \
+    rethinkdb
