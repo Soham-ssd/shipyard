@@ -1,0 +1,10 @@
+#To enable Swarm leader election, we must use an external key value store from the Swarm container. For this example, we will use etcd however, you can use any key/value backend supported by Swarm.
+docker run \
+    -ti \
+    -d \
+    -p 4001:4001 \
+    -p 7001:7001 \
+    --restart=always \
+    --name shipyard-discovery \
+    microbox/etcd -name discovery
+    
